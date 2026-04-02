@@ -1,0 +1,98 @@
+---
+const steps = [
+  {
+    number: '01',
+    title: 'Install & forget',
+    description:
+      'Download Loggie and let it run. It starts tracking your activity silently in the background.',
+  },
+  {
+    number: '02',
+    title: 'It remembers everything',
+    description:
+      'Active windows, tabs, documents, meetings — Loggie captures context and stores it locally on your machine.',
+  },
+  {
+    number: '03',
+    title: 'Ask anything',
+    description:
+      '"What was I working on yesterday afternoon?" — ask an LLM and get instant, contextual answers from your own data.',
+  },
+];
+---
+
+<section class="how-it-works" id="how-it-works">
+  <div class="container">
+    <h2>How it works</h2>
+    <p class="section-subtitle">Three steps to never losing context again.</p>
+
+    <div class="steps">
+      {
+        steps.map((step, i) => (
+          <div class="step fade-in" style={`transition-delay: ${i * 100}ms`}>
+            <span class="number">{step.number}</span>
+            <h3>{step.title}</h3>
+            <p>{step.description}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .how-it-works {
+    padding: 6rem 1.5rem;
+    background: var(--bg-subtle);
+  }
+
+  .container {
+    max-width: 64rem;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 600;
+    letter-spacing: -0.025em;
+  }
+
+  .section-subtitle {
+    margin-top: 1rem;
+    color: var(--text-muted);
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    margin-top: 4rem;
+    text-align: left;
+  }
+
+  .number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #e5e5e5;
+  }
+
+  h3 {
+    margin-top: 0.5rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+  }
+
+  .step p {
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 768px) {
+    .steps {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

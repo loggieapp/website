@@ -1,0 +1,50 @@
+:root {
+  --brand-pink: #fdb1e3;
+  --brand-green: #82f6cb;
+  --brand-pink-light: #fee5f3;
+  --brand-green-light: #d4fbe9;
+  --text: #0a0a0a;
+  --text-muted: #737373;
+  --text-faint: #a3a3a3;
+  --border: #f5f5f5;
+  --bg: #ffffff;
+  --bg-subtle: #fafafa;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-feature-settings: 'cv11', 'ss01';
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

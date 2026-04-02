@@ -1,0 +1,116 @@
+---
+const features = [
+  {
+    icon: '🔒',
+    title: 'Completely private',
+    description:
+      'All data stays on your device. Nothing is sent to the cloud. Your activity, your control.',
+    accent: 'var(--brand-pink-light)',
+  },
+  {
+    icon: '🧠',
+    title: 'AI-powered recall',
+    description:
+      'Ask an LLM what you were working on, find lost tabs, or summarize your day. Context that works for you.',
+    accent: 'var(--brand-green-light)',
+  },
+  {
+    icon: '⚡',
+    title: 'Silent & lightweight',
+    description:
+      "Runs quietly in the background with minimal resource usage. You won't even notice it's there.",
+    accent: '#f5f5f5',
+  },
+];
+---
+
+<section class="features" id="features">
+  <div class="container">
+    <h2>Built for people who do a lot</h2>
+    <p class="section-subtitle">
+      Loggie gives you a searchable memory of everything you do on your
+      computer, without compromising your privacy.
+    </p>
+
+    <div class="grid">
+      {
+        features.map((feature, i) => (
+          <div class="card fade-in" style={`transition-delay: ${i * 100}ms`}>
+            <div class="icon" style={`background: ${feature.accent}`}>
+              {feature.icon}
+            </div>
+            <h3>{feature.title}</h3>
+            <p>{feature.description}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .features {
+    padding: 6rem 1.5rem;
+  }
+
+  .container {
+    max-width: 64rem;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 600;
+    letter-spacing: -0.025em;
+  }
+
+  .section-subtitle {
+    max-width: 28rem;
+    margin: 1rem auto 0;
+    color: var(--text-muted);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 4rem;
+    text-align: left;
+  }
+
+  .card {
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid var(--border);
+  }
+
+  .icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.75rem;
+    font-size: 1.25rem;
+  }
+
+  h3 {
+    margin-top: 1rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+  }
+
+  .card p {
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 768px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
