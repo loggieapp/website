@@ -19,8 +19,20 @@
     </p>
 
     <div class="actions">
-      <a href="https://api.loggie.app/releases/macos/latest" class="btn btn-primary">Download for macOS</a>
-      <a href="https://api.loggie.app/releases/windows/latest" class="btn btn-primary">Download for Windows</a>
+      <div class="download-buttons">
+        <a href="https://api.loggie.app/releases/macos/latest/download" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 21.99 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 21.99C7.79 22.03 6.8 20.68 5.96 19.47C4.25 16.99 2.97 12.5 4.7 9.47C5.55 7.97 7.13 7.01 8.82 6.99C10.1 6.97 11.32 7.85 12.11 7.85C12.89 7.85 14.37 6.78 15.92 6.95C16.57 6.98 18.39 7.21 19.56 8.91C19.47 8.97 17.09 10.35 17.12 13.18C17.15 16.59 20.09 17.73 20.12 17.74C20.09 17.81 19.64 19.29 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"></path>
+          </svg>
+          Download for macOS
+        </a>
+        <a href="https://api.loggie.app/releases/windows/latest/download" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M3 5.557L10.95 4.5L10.953 12.15L3.006 12.197L3 5.557ZM10.942 12.83L10.955 20.494L3.005 19.437L3.005 12.783L10.942 12.83ZM11.89 4.37L21 3V12.057L11.89 12.132L11.89 4.37ZM21.001 12.87L21 21.993L11.89 20.623L11.875 12.86L21.001 12.87Z"></path>
+          </svg>
+          Download for Windows
+        </a>
+      </div>
       <a href="#how-it-works" class="btn btn-secondary">Learn more</a>
     </div>
   </div>
@@ -89,14 +101,23 @@
 
   .actions {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
     gap: 1rem;
     margin-top: 2.5rem;
   }
 
+  .download-buttons {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
   .btn {
     display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     padding: 0.75rem 2rem;
     border-radius: 9999px;
     font-size: 0.875rem;
