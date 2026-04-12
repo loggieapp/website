@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#F9F8F4"/>
+
+  <!-- Decorative cards (right side) -->
+  <rect x="840" y="120" width="260" height="340" rx="20" fill="#C4B0E8" transform="rotate(-3 840 120)"/>
+  <rect x="910" y="80" width="260" height="400" rx="20" fill="#ffffff" stroke="#E8E4DC" stroke-width="1" transform="rotate(2 910 80)"/>
+  <rect x="980" y="140" width="240" height="300" rx="20" fill="#C8E8BC" transform="rotate(-1.5 980 140)"/>
+
+  <!-- Logo mark -->
+  <rect x="80" y="72" width="60" height="60" rx="13" fill="#1D2025"/>
+  <rect x="95" y="87" width="9" height="30" fill="white"/>
+  <rect x="95" y="108" width="20" height="9" fill="white"/>
+  <rect x="117" y="87" width="7" height="7" fill="white"/>
+
+  <!-- Loggie wordmark -->
+  <text x="155" y="113" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="26" font-weight="600" fill="#1D2025">Loggie</text>
+
+  <!-- Main heading -->
+  <text x="80" y="340" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="86" font-weight="700" letter-spacing="-3" fill="#1D2025">Your personal</text>
+  <text x="80" y="440" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="86" font-weight="700" letter-spacing="-3" fill="#1D2025">activity memory.</text>
+
+  <!-- Pill sticker overlaid on heading -->
+  <rect x="80" y="352" width="172" height="46" rx="23" fill="#FFBA86" transform="rotate(-3 166 375)"/>
+  <text x="166" y="375" text-anchor="middle" dominant-baseline="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="19" font-weight="500" fill="#1D2025" transform="rotate(-3 166 375)">AI-powered</text>
+
+  <!-- Subtitle -->
+  <text x="80" y="510" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="22" font-weight="300" fill="#6B6E77">Quietly captures what you work on.</text>
+  <text x="80" y="540" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="22" font-weight="300" fill="#6B6E77">Ask any AI about your day.</text>
+
+  <!-- URL -->
+  <text x="80" y="596" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="400" fill="#B0ADA6">loggie.app</text>
+</svg>

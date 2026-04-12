@@ -193,13 +193,13 @@
     flex: 1;
     text-align: left;
     position: relative;
-    box-shadow: 0 16px 48px rgba(0,0,0,0.13), 0 4px 12px rgba(0,0,0,0.07);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04);
     transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
   .card:hover {
     z-index: 10 !important;
     transform: translateY(-10px) rotate(0deg) !important;
-    box-shadow: 0 28px 72px rgba(0,0,0,0.18), 0 10px 28px rgba(0,0,0,0.1) !important;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.12), 0 6px 18px rgba(0,0,0,0.07) !important;
   }
   .card-eye { font-size: 0.6875rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(29,32,37,0.45); }
   .card-foot { margin-top: auto; font-size: 0.8125rem; font-weight: 400; color: rgba(29,32,37,0.55); }
@@ -228,12 +228,15 @@
   @media (max-width: 640px) {
     .nav { padding: 1.125rem 1.25rem; }
     nav a:not(.nav-download) { display: none; }
-    .hero { padding-top: 3rem; }
+    .hero { padding-top: 2.5rem; }
+    h1 { font-size: clamp(2.5rem, 11vw, 3.5rem); }
+    .hero-pill { font-size: 0.8125rem; padding: 0.35rem 0.9rem; }
     .pills-wrap { width: calc(100% + 2rem); margin-left: -1rem; padding: 2rem 0.5rem 0; gap: 0.5rem; }
     .pill { font-size: 0.9375rem; padding: 0.45rem 1rem; }
-    .demo { flex-direction: row; overflow-x: auto; scroll-snap-type: x mandatory; gap: 1rem; padding: 3rem 1.25rem 1.5rem; align-items: stretch; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+    .demo { flex-direction: row; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-left: 1.5rem; gap: 1rem; padding: 2rem 0 2.5rem; align-items: stretch; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+    .demo::before, .demo::after { content: ''; width: 1.5rem; flex-shrink: 0; }
     .demo::-webkit-scrollbar { display: none; }
-    .card { min-width: 78vw; flex-shrink: 0; scroll-snap-align: start; transform: none !important; margin: 0 !important; box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+    .card { min-width: 78vw; flex-shrink: 0; scroll-snap-align: start; transform: none !important; margin: 0 !important; box-shadow: 0 4px 16px rgba(0,0,0,0.07); }
     .card-a, .card-c { min-height: 280px; }
     .card-b { min-height: 320px; flex: unset; }
   }
