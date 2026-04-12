@@ -1,177 +1,240 @@
 ---
 ---
 
+<header class="nav">
+  <a href="/" class="brand" aria-label="Loggie home">
+    <img src="/logo.svg" height="32" width="32" alt="" aria-hidden="true" />
+    <span>Loggie</span>
+  </a>
+  <nav>
+    <a href="#features">Features</a>
+    <a href="#download" class="nav-download">Download</a>
+  </nav>
+</header>
+
 <section class="hero">
-  <div class="hero-content">
-    <div class="badge">
-      <span class="badge-dot"></span>
-      Available for macOS & Windows
-    </div>
+  <!-- Heading: unconstrained width -->
+  <div class="heading-wrap fade-in">
+    <h1>Your personal<br/>activity memory.</h1>
+    <span class="hero-pill" aria-hidden="true">AI&#8209;powered</span>
+  </div>
 
-    <h1>
-      Your personal<br />
-      <span class="gradient-text">activity memory</span>
-    </h1>
-
-    <p class="subtitle">
-      Loggie quietly tracks what you do on your computer and stores everything
-      locally. Ask an AI about your day — it remembers so you don't have to.
-    </p>
-
-    <div class="actions">
-      <div class="download-buttons">
-        <a href="https://api.loggie.app/releases/macos/latest/download" class="btn btn-primary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 21.99 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 21.99C7.79 22.03 6.8 20.68 5.96 19.47C4.25 16.99 2.97 12.5 4.7 9.47C5.55 7.97 7.13 7.01 8.82 6.99C10.1 6.97 11.32 7.85 12.11 7.85C12.89 7.85 14.37 6.78 15.92 6.95C16.57 6.98 18.39 7.21 19.56 8.91C19.47 8.97 17.09 10.35 17.12 13.18C17.15 16.59 20.09 17.73 20.12 17.74C20.09 17.81 19.64 19.29 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"></path>
-          </svg>
-          Download for macOS
-        </a>
-        <a href="https://api.loggie.app/releases/windows/latest/download" class="btn btn-primary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M3 5.557L10.95 4.5L10.953 12.15L3.006 12.197L3 5.557ZM10.942 12.83L10.955 20.494L3.005 19.437L3.005 12.783L10.942 12.83ZM11.89 4.37L21 3V12.057L11.89 12.132L11.89 4.37ZM21.001 12.87L21 21.993L11.89 20.623L11.875 12.86L21.001 12.87Z"></path>
-          </svg>
-          Download for Windows
-        </a>
-      </div>
-      <a href="#how-it-works" class="btn btn-secondary">Learn more</a>
+  <!-- Subtitle + buttons: constrained -->
+  <div class="hero-body fade-in">
+    <p class="sub">Loggie quietly runs in the background, capturing what you work on — so you can ask an AI about your day and actually get answers.</p>
+    <div class="cta-row">
+      <a href="https://api.loggie.app/releases/macos/latest/download" class="btn btn-primary">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 21.99 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 21.99C7.79 22.03 6.8 20.68 5.96 19.47C4.25 16.99 2.97 12.5 4.7 9.47C5.55 7.97 7.13 7.01 8.82 6.99C10.1 6.97 11.32 7.85 12.11 7.85C12.89 7.85 14.37 6.78 15.92 6.95C16.57 6.98 18.39 7.21 19.56 8.91C19.47 8.97 17.09 10.35 17.12 13.18C17.15 16.59 20.09 17.73 20.12 17.74C20.09 17.81 19.64 19.29 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/></svg>
+        Download for macOS
+      </a>
+      <a href="https://api.loggie.app/releases/windows/latest/download" class="btn btn-outline">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.557L10.95 4.5L10.953 12.15L3.006 12.197L3 5.557ZM10.942 12.83L10.955 20.494L3.005 19.437L3.005 12.783L10.942 12.83ZM11.89 4.37L21 3V12.057L11.89 12.132L11.89 4.37ZM21.001 12.87L21 21.993L11.89 20.623L11.875 12.86L21.001 12.87Z"/></svg>
+        Download for Windows
+      </a>
     </div>
   </div>
 
-  <div class="blob blob-pink"></div>
-  <div class="blob blob-green"></div>
+  <!-- Demo cards: tilted, overlapping, shadows -->
+  <div class="demo fade-in" aria-hidden="true">
+
+    <div class="card card-a">
+      <p class="card-eye">Today's activity</p>
+      <div class="log">
+        <div class="log-row"><span class="pip" style="background:#7C5CE7"></span><span class="app">loggie-web — VS Code</span><span class="dur">2h 14m</span></div>
+        <div class="log-row"><span class="pip" style="background:#FF7A47"></span><span class="app">Figma — Brand design</span><span class="dur">1h 03m</span></div>
+        <div class="log-row"><span class="pip" style="background:#3DAD7C"></span><span class="app">Arc — Research tabs</span><span class="dur">47m</span></div>
+        <div class="log-row"><span class="pip" style="background:#B8A4DF"></span><span class="app">Notion — Meeting notes</span><span class="dur">32m</span></div>
+      </div>
+      <p class="card-foot">Automatically captured</p>
+    </div>
+
+    <div class="card card-b">
+      <p class="card-eye">Ask your AI</p>
+      <div class="chat">
+        <div class="chat-q">What was I working on yesterday?</div>
+        <div class="chat-a">You spent 3h on the Loggie redesign in VS Code, then reviewed the brand doc in Figma ✨</div>
+        <div class="chat-q">Summarise my week</div>
+        <div class="chat-a">Heavy coding Mon–Wed, design Thu, light comms Friday. Most focused: Tuesday 🎯</div>
+      </div>
+      <p class="card-foot">Works with any LLM</p>
+    </div>
+
+    <div class="card card-c">
+      <p class="card-eye">Privacy first</p>
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M12 2L3 7V13C3 17.55 7.16 21.74 12 23C16.84 21.74 21 17.55 21 13V7L12 2Z" fill="rgba(29,32,37,0.1)" stroke="#1D2025" stroke-width="1.6" stroke-linejoin="round"/>
+        <path d="M9 12L11 14L15 10" stroke="#1D2025" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="priv-text">
+        <strong>100% local</strong>
+        <span>Your data never leaves your machine</span>
+      </div>
+      <p class="card-foot">No account required</p>
+    </div>
+
+  </div>
 </section>
 
 <style>
-  .hero {
-    position: relative;
-    overflow: hidden;
-    padding: 8rem 1.5rem 6rem;
-    text-align: center;
-  }
-
-  .hero-content {
-    max-width: 48rem;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
-  }
-
-  .badge {
-    display: inline-flex;
+  .nav {
+    display: flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.375rem 1rem;
-    border-radius: 9999px;
-    background: #f5f5f5;
-    font-size: 0.875rem;
-    color: var(--text-muted);
-    margin-bottom: 1.5rem;
+    justify-content: space-between;
+    padding: 1.375rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: #F9F8F4;
   }
-
-  .badge-dot {
-    display: inline-block;
-    width: 0.5rem;
-    height: 0.5rem;
+  .brand { display: flex; align-items: center; gap: 0.625rem; font-size: 1rem; font-weight: 500; color: #1D2025; }
+  nav { display: flex; align-items: center; gap: 2rem; }
+  nav a { font-size: 0.875rem; color: #6B6E77; transition: color 0.15s; }
+  nav a:hover { color: #1D2025; }
+  .nav-download {
+    color: #1D2025 !important;
+    font-weight: 500;
+    border: 1.5px solid rgba(29,32,37,0.3);
+    padding: 0.4rem 1rem;
     border-radius: 9999px;
-    background: var(--brand-green);
+    transition: all 0.15s !important;
+  }
+  .nav-download:hover { background: #1D2025; border-color: #1D2025; color: #F9F8F4 !important; }
+
+  /* ── Hero ────────────────────────────────────── */
+  .hero { background: #F9F8F4; padding-top: 4.5rem; text-align: center; }
+  .hero-body { max-width: 44rem; margin: 0 auto; padding: 0 2rem; display: flex; flex-direction: column; align-items: center; gap: 1.25rem; }
+  .heading-wrap {
+    position: relative;
+    display: inline-block;
+    padding: 0 2rem;
+    margin-bottom: 1.75rem;
   }
 
   h1 {
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
-    font-weight: 600;
-    letter-spacing: -0.025em;
-    line-height: 1.1;
-    color: var(--text);
+    font-size: clamp(3.5rem, 7vw, 6rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+    color: #1D2025;
   }
 
-  .gradient-text {
-    background: linear-gradient(135deg, var(--brand-pink), var(--brand-green));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
+  h1 em { font-style: italic; font-weight: 700; }
 
-  .subtitle {
-    max-width: 32rem;
-    margin: 1.5rem auto 0;
-    font-size: 1.125rem;
-    line-height: 1.7;
-    color: var(--text-muted);
+  /* Pill sticker overlaid on the heading */
+  .hero-pill {
+    position: absolute;
+    top: 50%;
+    left: 18%;
+    transform: translateY(-50%) rotate(-3deg);
+    background: #FFBA86;
+    color: #1D2025;
+    padding: 0.45rem 1.25rem;
+    border-radius: 9999px;
+    font-size: 1rem;
+    font-weight: 500;
+    white-space: nowrap;
+    z-index: 2;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    pointer-events: none;
   }
+  .sub { font-size: 1rem; font-weight: 300; color: #6B6E77; line-height: 1.5; }
 
-  .actions {
+  .cta-row { display: flex; gap: 0.625rem; flex-wrap: wrap; justify-content: center; margin-top: 0.25rem; }
+  .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.625rem; border-radius: 9999px; font-size: 0.9375rem; font-weight: 500; font-family: inherit; transition: all 0.2s; cursor: pointer; border: none; }
+
+  .btn-primary { background: #5B3FC8; color: #F9F8F4; }
+  .btn-primary:hover { background: #4A32A6; transform: translateY(-2px); box-shadow: 0 4px 16px rgba(91,63,200,0.3); }
+  .btn-outline { border: 1.5px solid rgba(29,32,37,0.3); color: #1D2025; background: transparent; }
+  .btn-outline:hover { border-color: #1D2025; transform: translateY(-2px); }
+
+  /* ── Pills: break wider than hero-body ──────── */
+  .pills-wrap {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    margin-top: 2.5rem;
-  }
-
-  .download-buttons {
-    display: flex;
-    gap: 0.75rem;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 0.75rem;
+    padding: 2.5rem 0 0;
+    width: calc(100% + 10rem);
+    margin-left: -5rem;
   }
-
-  .btn {
+  .pill {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 2rem;
+    padding: 0.55rem 1.375rem;
     border-radius: 9999px;
-    font-size: 0.875rem;
-    font-weight: 500;
-    transition: all 0.2s;
+    font-size: 1.0625rem;
+    font-weight: 400;
+    white-space: nowrap;
+    cursor: default;
+    transition: transform 0.15s;
   }
+  .pill:hover { transform: scale(1.05) rotate(0deg) !important; }
+  .pill-dark     { background: #1D2025; color: #F9F8F4; }
+  .pill-lavender { background: #B8A4DF; color: #1D2025; }
+  .pill-green    { background: #DFEED7; color: #1D2025; }
+  .pill-apricot  { background: #FFBA86; color: #1D2025; }
+  .pill-sage     { background: #B5D9BF; color: #1D2025; }
+  .pill-outline  { border: 1.5px solid #C8C5BE; color: #4A4D54; background: transparent; }
 
-  .btn-primary {
-    background: var(--text);
-    color: white;
+  /* ── Demo cards: tilted, overlapping ────────── */
+  .demo {
+    display: flex;
+    align-items: flex-end;
+    padding: 5rem 5rem 8rem;
+    gap: 0;
   }
-
-  .btn-primary:hover {
-    background: #262626;
+  .card {
+    border-radius: 1.5rem;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    overflow: hidden;
+    flex: 1;
+    text-align: left;
+    position: relative;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.13), 0 4px 12px rgba(0,0,0,0.07);
+    transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
-
-  .btn-secondary {
-    border: 1px solid #e5e5e5;
-    color: #404040;
+  .card:hover {
+    z-index: 10 !important;
+    transform: translateY(-10px) rotate(0deg) !important;
+    box-shadow: 0 28px 72px rgba(0,0,0,0.18), 0 10px 28px rgba(0,0,0,0.1) !important;
   }
+  .card-eye { font-size: 0.6875rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(29,32,37,0.45); }
+  .card-foot { margin-top: auto; font-size: 0.8125rem; font-weight: 400; color: rgba(29,32,37,0.55); }
 
-  .btn-secondary:hover {
-    background: #fafafa;
+  .card-a { background: #ffffff; min-height: 310px; transform: rotate(-2.5deg) translateY(16px); z-index: 1; margin-right: -2.5rem; }
+  .log { display: flex; flex-direction: column; gap: 0.5rem; }
+  .log-row { display: flex; align-items: center; gap: 0.5rem; background: rgba(0,0,0,0.05); border-radius: 0.5rem; padding: 0.375rem 0.625rem; }
+  .pip { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .app { font-size: 0.75rem; font-weight: 500; color: #1D2025; flex: 1; }
+  .dur { font-size: 0.6875rem; color: rgba(29,32,37,0.55); font-variant-numeric: tabular-nums; }
+
+  .card-b { background: #C4B0E8; min-height: 380px; transform: rotate(1.5deg) translateY(-12px); z-index: 3; flex: 1.1; }
+  .chat { display: flex; flex-direction: column; gap: 0.5rem; }
+  .chat-q { align-self: flex-end; background: #1D2025; color: #F9F8F4; font-size: 0.75rem; line-height: 1.5; padding: 0.5rem 0.75rem; border-radius: 1rem 1rem 0.25rem 1rem; max-width: 88%; }
+  .chat-a { background: rgba(255,255,255,0.6); color: #1D2025; font-size: 0.75rem; line-height: 1.55; padding: 0.5rem 0.75rem; border-radius: 1rem 1rem 1rem 0.25rem; max-width: 94%; }
+
+  .card-c { background: #C8E8BC; min-height: 270px; transform: rotate(-1.5deg) translateY(20px); z-index: 2; margin-left: -2.5rem; }
+  .priv-text { display: flex; flex-direction: column; gap: 0.25rem; flex: 1; justify-content: center; }
+  .priv-text strong { font-size: 1.375rem; font-weight: 700; color: #1D2025; letter-spacing: -0.02em; line-height: 1.2; display: block; }
+  .priv-text span { font-size: 0.875rem; color: rgba(29,32,37,0.6); font-weight: 300; line-height: 1.4; }
+
+  /* ── Responsive ──────────────────────────────── */
+  @media (max-width: 860px) {
+    .demo { padding: 4rem 2.5rem 0; }
   }
-
-  .blob {
-    position: absolute;
-    border-radius: 9999px;
-    pointer-events: none;
-    filter: blur(80px);
-  }
-
-  .blob-pink {
-    top: -10rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 36rem;
-    height: 36rem;
-    background: var(--brand-pink);
-    opacity: 0.15;
-  }
-
-  .blob-green {
-    top: -5rem;
-    left: 33%;
-    width: 24rem;
-    height: 24rem;
-    background: var(--brand-green);
-    opacity: 0.12;
-  }
-
   @media (max-width: 640px) {
-    .hero {
-      padding: 6rem 1.5rem 4rem;
-    }
+    .nav { padding: 1.125rem 1.25rem; }
+    nav a:not(.nav-download) { display: none; }
+    .hero { padding-top: 3rem; }
+    .pills-wrap { width: calc(100% + 2rem); margin-left: -1rem; padding: 2rem 0.5rem 0; gap: 0.5rem; }
+    .pill { font-size: 0.9375rem; padding: 0.45rem 1rem; }
+    .demo { flex-direction: row; overflow-x: auto; scroll-snap-type: x mandatory; gap: 1rem; padding: 3rem 1.25rem 1.5rem; align-items: stretch; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+    .demo::-webkit-scrollbar { display: none; }
+    .card { min-width: 78vw; flex-shrink: 0; scroll-snap-align: start; transform: none !important; margin: 0 !important; box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+    .card-a, .card-c { min-height: 280px; }
+    .card-b { min-height: 320px; flex: unset; }
   }
 </style>

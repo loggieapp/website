@@ -1,42 +1,90 @@
 ---
 ---
 
-<footer>
-  <div class="container">
-    <span class="logo">Loggie</span>
-    <p>&copy; {new Date().getFullYear()} Loggie. All rights reserved.</p>
+<footer class="footer">
+  <div class="inner">
+
+    <div class="left">
+      <a href="/" class="brand" aria-label="Loggie home">
+        <img src="/logo.svg" height="28" width="28" alt="Loggie" />
+        <span>Loggie</span>
+      </a>
+      <p class="tagline">Your personal activity memory.</p>
+    </div>
+
+    <nav class="links" aria-label="Footer navigation">
+      <a href="#features">Features</a>
+      <a href="#download">Download</a>
+    </nav>
+
+    <p class="copy">&copy; {new Date().getFullYear()} Loggie</p>
+
   </div>
 </footer>
 
 <style>
-  footer {
-    border-top: 1px solid var(--border);
-    padding: 3rem 1.5rem;
+  .footer {
+    background: #EAE6DC;
+    border-top: 1px solid #D8D4CA;
+    padding: 2.5rem 2.5rem;
   }
 
-  .container {
+  .inner {
     max-width: 64rem;
     margin: 0 auto;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto auto;
     align-items: center;
-    justify-content: space-between;
+    gap: 3rem;
   }
 
-  .logo {
-    font-size: 1.125rem;
-    font-weight: 600;
-    letter-spacing: -0.025em;
+  .left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
   }
 
-  p {
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: #1D2025;
+  }
+
+  .tagline {
+    font-size: 0.8125rem;
+    color: #9B9EA6;
+    font-weight: 300;
+    padding-left: 0.25rem;
+  }
+
+  .links {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .links a {
     font-size: 0.875rem;
-    color: var(--text-faint);
+    color: #6B6E77;
+    transition: color 0.15s;
+  }
+
+  .links a:hover { color: #1D2025; }
+
+  .copy {
+    font-size: 0.8125rem;
+    color: #C8C5BE;
+    white-space: nowrap;
   }
 
   @media (max-width: 640px) {
-    .container {
-      flex-direction: column;
-      gap: 1rem;
+    .footer { padding: 2rem 1.25rem; }
+    .inner {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
     }
+    .links { gap: 1.25rem; }
   }
 </style>

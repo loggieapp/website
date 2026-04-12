@@ -1,116 +1,129 @@
 ---
-const features = [
-  {
-    icon: '🔒',
-    title: 'Completely private',
-    description:
-      'All data stays on your device. Nothing is sent to the cloud. Your activity, your control.',
-    accent: 'var(--brand-pink-light)',
-  },
-  {
-    icon: '🧠',
-    title: 'AI-powered recall',
-    description:
-      'Ask an LLM what you were working on, find lost tabs, or summarize your day. Context that works for you.',
-    accent: 'var(--brand-green-light)',
-  },
-  {
-    icon: '⚡',
-    title: 'Silent & lightweight',
-    description:
-      "Runs quietly in the background with minimal resource usage. You won't even notice it's there.",
-    accent: '#f5f5f5',
-  },
-];
 ---
 
 <section class="features" id="features">
   <div class="container">
-    <h2>Built for people who do a lot</h2>
-    <p class="section-subtitle">
-      Loggie gives you a searchable memory of everything you do on your
-      computer, without compromising your privacy.
-    </p>
+
+    <div class="section-head fade-in">
+      <p class="eyebrow">Why Loggie</p>
+      <h2>Built for people who do a lot.</h2>
+    </div>
 
     <div class="grid">
-      {
-        features.map((feature, i) => (
-          <div class="card fade-in" style={`transition-delay: ${i * 100}ms`}>
-            <div class="icon" style={`background: ${feature.accent}`}>
-              {feature.icon}
-            </div>
-            <h3>{feature.title}</h3>
-            <p>{feature.description}</p>
-          </div>
-        ))
-      }
+
+      <div class="feat-card fade-in" style="background:#C5E0BC; transition-delay:0ms">
+        <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 2L3 7V13C3 17.55 7.16 21.74 12 23C16.84 21.74 21 17.55 21 13V7L12 2Z" stroke="#1D2025" stroke-width="1.6" stroke-linejoin="round"/>
+          <path d="M9 12L11 14L15 10" stroke="#1D2025" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h3>Completely private</h3>
+        <p>All data stays on your device. No cloud, no servers — your activity stays yours forever.</p>
+      </div>
+
+      <div class="feat-card fade-in" style="background:#CDBCE6; transition-delay:80ms">
+        <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 3L13.5 7.5L18 9L13.5 10.5L12 15L10.5 10.5L6 9L10.5 7.5L12 3Z" stroke="#1D2025" stroke-width="1.6" stroke-linejoin="round"/>
+          <path d="M6 17L6.75 19.25L9 20L6.75 20.75L6 23L5.25 20.75L3 20L5.25 19.25L6 17Z" stroke="#1D2025" stroke-width="1.4" stroke-linejoin="round"/>
+        </svg>
+        <h3>AI&#8209;powered recall</h3>
+        <p>Ask any LLM what you were working on, find lost tabs, or summarise your week. Context that actually works.</p>
+      </div>
+
+      <div class="feat-card fade-in" style="background:#ffffff; transition-delay:160ms">
+        <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <rect x="3" y="3" width="8" height="8" rx="1.5" stroke="#1D2025" stroke-width="1.6"/>
+          <rect x="13" y="3" width="8" height="8" rx="1.5" stroke="#1D2025" stroke-width="1.6"/>
+          <rect x="3" y="13" width="8" height="8" rx="1.5" stroke="#1D2025" stroke-width="1.6"/>
+          <rect x="13" y="13" width="8" height="8" rx="1.5" stroke="#1D2025" stroke-width="1.6"/>
+        </svg>
+        <h3>Every app, every tab</h3>
+        <p>Active windows, browser tabs, documents, meeting titles — Loggie captures the full context of your workday.</p>
+      </div>
+
+      <div class="feat-card fade-in" style="background:#FFDFC2; transition-delay:240ms">
+        <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" stroke="#1D2025" stroke-width="1.6" stroke-linejoin="round"/>
+        </svg>
+        <h3>Silent &amp; lightweight</h3>
+        <p>Runs quietly in your menu bar with minimal resource usage. You won't even notice it's there.</p>
+      </div>
+
     </div>
   </div>
 </section>
 
 <style>
   .features {
-    padding: 6rem 1.5rem;
+    padding: 7rem 2.5rem 6rem;
+    background: #F0EDE4;
   }
 
   .container {
     max-width: 64rem;
     margin: 0 auto;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .section-head { display: flex; flex-direction: column; gap: 0.625rem; }
+
+  .eyebrow {
+    font-size: 0.6875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #9B9EA6;
   }
 
   h2 {
-    font-size: clamp(1.75rem, 3vw, 2.25rem);
-    font-weight: 600;
-    letter-spacing: -0.025em;
-  }
-
-  .section-subtitle {
-    max-width: 28rem;
-    margin: 1rem auto 0;
-    color: var(--text-muted);
+    font-size: clamp(1.875rem, 3.5vw, 2.75rem);
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    color: #1D2025;
+    line-height: 1.15;
   }
 
   .grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-top: 4rem;
-    text-align: left;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
   }
 
-  .card {
-    padding: 2rem;
-    border-radius: 1rem;
-    border: 1px solid var(--border);
+  .feat-card {
+    border-radius: 1.5rem;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+    min-height: 240px;
   }
 
-  .icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 3rem;
-    height: 3rem;
-    border-radius: 0.75rem;
-    font-size: 1.25rem;
+  .icon { flex-shrink: 0; }
+
+  .feat-card h3 {
+    font-size: 1.0625rem;
+    font-weight: 500;
+    color: #1D2025;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
   }
 
-  h3 {
-    margin-top: 1rem;
-    font-size: 1.125rem;
-    font-weight: 600;
-  }
-
-  .card p {
-    margin-top: 0.5rem;
+  .feat-card p {
     font-size: 0.875rem;
+    color: rgba(29,32,37,0.65);
     line-height: 1.7;
-    color: var(--text-muted);
+    font-weight: 300;
+    margin-top: auto;
   }
 
-  @media (max-width: 768px) {
-    .grid {
-      grid-template-columns: 1fr;
-    }
+  @media (max-width: 900px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 540px) {
+    .features { padding: 5rem 1.5rem 4rem; }
+    .grid { grid-template-columns: 1fr; }
+    .feat-card { min-height: auto; }
   }
 </style>
