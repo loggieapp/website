@@ -2,32 +2,64 @@
   <!-- Background -->
   <rect width="1200" height="630" fill="#F9F8F4"/>
 
-  <!-- Decorative cards (right side) -->
-  <rect x="840" y="120" width="260" height="340" rx="20" fill="#C4B0E8" transform="rotate(-3 840 120)"/>
-  <rect x="910" y="80" width="260" height="400" rx="20" fill="#ffffff" stroke="#E8E4DC" stroke-width="1" transform="rotate(2 910 80)"/>
-  <rect x="980" y="140" width="240" height="300" rx="20" fill="#C8E8BC" transform="rotate(-1.5 980 140)"/>
-
   <!-- Logo mark -->
-  <rect x="80" y="72" width="60" height="60" rx="13" fill="#1D2025"/>
-  <rect x="95" y="87" width="9" height="30" fill="white"/>
-  <rect x="95" y="108" width="20" height="9" fill="white"/>
-  <rect x="117" y="87" width="7" height="7" fill="white"/>
-
-  <!-- Loggie wordmark -->
-  <text x="155" y="113" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="26" font-weight="600" fill="#1D2025">Loggie</text>
+  <rect x="72" y="64" width="52" height="52" rx="11" fill="#1D2025"/>
+  <rect x="85" y="77" width="8" height="26" fill="white"/>
+  <rect x="85" y="95" width="17" height="8" fill="white"/>
+  <rect x="104" y="77" width="6" height="6" fill="white"/>
+  <text x="136" y="100" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="22" font-weight="600" fill="#1D2025">Loggie</text>
 
   <!-- Main heading -->
-  <text x="80" y="340" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="86" font-weight="700" letter-spacing="-3" fill="#1D2025">Your personal</text>
-  <text x="80" y="440" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="86" font-weight="700" letter-spacing="-3" fill="#1D2025">activity memory.</text>
+  <text x="72" y="240" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="86" font-weight="700" letter-spacing="-3" fill="#1D2025">Your personal</text>
+  <text x="72" y="340" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="86" font-weight="700" letter-spacing="-3" fill="#1D2025">activity memory.</text>
 
-  <!-- Pill sticker overlaid on heading -->
-  <rect x="80" y="352" width="172" height="46" rx="23" fill="#FFBA86" transform="rotate(-3 166 375)"/>
-  <text x="166" y="375" text-anchor="middle" dominant-baseline="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="19" font-weight="500" fill="#1D2025" transform="rotate(-3 166 375)">AI-powered</text>
+  <!-- Pill sticker overlaid on "activity" -->
+  <rect x="72" y="252" width="172" height="46" rx="23" fill="#FFBA86" transform="rotate(-3 158 275)"/>
+  <text x="158" y="275" text-anchor="middle" dominant-baseline="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="19" font-weight="500" fill="#1D2025" transform="rotate(-3 158 275)">AI-powered</text>
 
   <!-- Subtitle -->
-  <text x="80" y="510" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="22" font-weight="300" fill="#6B6E77">Quietly captures what you work on.</text>
-  <text x="80" y="540" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="22" font-weight="300" fill="#6B6E77">Ask any AI about your day.</text>
+  <text x="72" y="404" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="21" font-weight="300" fill="#6B6E77">Quietly captures what you work on.</text>
+  <text x="72" y="432" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="21" font-weight="300" fill="#6B6E77">Ask any AI about your day.</text>
 
   <!-- URL -->
-  <text x="80" y="596" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="400" fill="#B0ADA6">loggie.app</text>
+  <text x="72" y="590" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="17" font-weight="400" fill="#B0ADA6">loggie.app</text>
+
+  <!-- Today's Activity card -->
+  <rect x="680" y="60" width="460" height="510" rx="24" fill="#ffffff" filter="url(#shadow)"/>
+
+  <!-- Card label -->
+  <text x="720" y="110" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="500" letter-spacing="1.5" fill="rgba(29,32,37,0.45)">TODAY'S ACTIVITY</text>
+
+  <!-- Row 1 -->
+  <rect x="720" y="130" width="380" height="52" rx="10" fill="rgba(0,0,0,0.05)"/>
+  <circle cx="744" cy="156" r="6" fill="#7C5CE7"/>
+  <text x="762" y="161" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="16" font-weight="500" fill="#1D2025">loggie-web — VS Code</text>
+  <text x="1060" y="161" text-anchor="end" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" fill="rgba(29,32,37,0.5)">2h 14m</text>
+
+  <!-- Row 2 -->
+  <rect x="720" y="194" width="380" height="52" rx="10" fill="rgba(0,0,0,0.05)"/>
+  <circle cx="744" cy="220" r="6" fill="#FF7A47"/>
+  <text x="762" y="225" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="16" font-weight="500" fill="#1D2025">Figma — Brand design</text>
+  <text x="1060" y="225" text-anchor="end" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" fill="rgba(29,32,37,0.5)">1h 03m</text>
+
+  <!-- Row 3 -->
+  <rect x="720" y="258" width="380" height="52" rx="10" fill="rgba(0,0,0,0.05)"/>
+  <circle cx="744" cy="284" r="6" fill="#3DAD7C"/>
+  <text x="762" y="289" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="16" font-weight="500" fill="#1D2025">Arc — Research tabs</text>
+  <text x="1060" y="289" text-anchor="end" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" fill="rgba(29,32,37,0.5)">47m</text>
+
+  <!-- Row 4 -->
+  <rect x="720" y="322" width="380" height="52" rx="10" fill="rgba(0,0,0,0.05)"/>
+  <circle cx="744" cy="348" r="6" fill="#B8A4DF"/>
+  <text x="762" y="353" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="16" font-weight="500" fill="#1D2025">Notion — Meeting notes</text>
+  <text x="1060" y="353" text-anchor="end" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" fill="rgba(29,32,37,0.5)">32m</text>
+
+  <!-- Card footer -->
+  <text x="720" y="530" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" fill="rgba(29,32,37,0.45)">Automatically captured</text>
+
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="115%" height="115%">
+      <feDropShadow dx="0" dy="8" stdDeviation="20" flood-color="rgba(0,0,0,0.08)"/>
+    </filter>
+  </defs>
 </svg>
