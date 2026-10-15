@@ -10,7 +10,7 @@ const t = ui[lang];
 
 const siteUrl = 'https://loggie.app';
 const pageUrl = new URL(paths[lang], siteUrl).href;
-const ogImage = `${siteUrl}/og.png`;
+const ogImage = `${siteUrl}/${lang === 'en' ? 'og.png' : 'og-no.png'}`;
 ---
 
 <!doctype html>
