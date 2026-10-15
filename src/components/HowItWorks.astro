@@ -1,98 +1,104 @@
 ---
-const steps = [
-  {
-    number: '01',
-    title: 'Install & forget',
-    description:
-      'Download Loggie and let it run. It starts tracking your activity silently in the background.',
-  },
-  {
-    number: '02',
-    title: 'It remembers everything',
-    description:
-      'Active windows, tabs, documents, meetings — Loggie captures context and stores it locally on your machine.',
-  },
-  {
-    number: '03',
-    title: 'Ask anything',
-    description:
-      '"What was I working on yesterday afternoon?" — ask an LLM and get instant, contextual answers from your own data.',
-  },
-];
+import { ui, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = ui[lang];
+const promptStyles = ['lyslilla', 'mint', 'card', 'aubergine', 'lyslilla'];
+const promptTilts = [-2, 1.5, -1, 2, -1.5];
 ---
 
-<section class="how-it-works" id="how-it-works">
+<section class="how" id="how">
   <div class="container">
-    <h2>How it works</h2>
-    <p class="section-subtitle">Three steps to never losing context again.</p>
 
-    <div class="steps">
-      {
-        steps.map((step, i) => (
-          <div class="step fade-in" style={`transition-delay: ${i * 100}ms`}>
-            <span class="number">{step.number}</span>
-            <h3>{step.title}</h3>
-            <p>{step.description}</p>
-          </div>
-        ))
-      }
+    <div class="section-head fade-in">
+      <p class="eyebrow">{t.how.eyebrow}</p>
+      <h2 class="section-title">{t.how.title}</h2>
     </div>
+
+    <ol class="steps">
+      {t.how.steps.map((step, i) => (
+        <li class="step fade-in" style={`transition-delay: ${i * 100}ms`}>
+          <span class="step-num">{i + 1}</span>
+          <h3>{step.title}</h3>
+          <p>{step.text}</p>
+        </li>
+      ))}
+    </ol>
+
+    <div class="prompts fade-in">
+      <p class="eyebrow">{t.how.promptsTitle}</p>
+      <ul>
+        {t.how.prompts.map((p, i) => (
+          <li class={`prompt prompt-${promptStyles[i]}`} style={`--tilt: ${promptTilts[i]}deg`}>“{p}”</li>
+        ))}
+      </ul>
+    </div>
+
   </div>
 </section>
 
 <style>
-  .how-it-works {
-    padding: 6rem 1.5rem;
-    background: var(--bg-subtle);
-  }
+  .how { padding: 6rem 2.5rem; }
+  .container { max-width: 64rem; margin: 0 auto; display: flex; flex-direction: column; gap: 3rem; }
+  .section-head { display: flex; flex-direction: column; gap: 0.625rem; }
 
-  .container {
-    max-width: 64rem;
-    margin: 0 auto;
-    text-align: center;
+  .steps { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .step {
+    background: var(--card);
+    box-shadow: inset 0 0 0 1px var(--border);
+    border-radius: 1.5rem;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
   }
-
-  h2 {
-    font-size: clamp(1.75rem, 3vw, 2.25rem);
-    font-weight: 600;
-    letter-spacing: -0.025em;
-  }
-
-  .section-subtitle {
-    margin-top: 1rem;
-    color: var(--text-muted);
-  }
-
-  .steps {
+  .step-num {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 3rem;
-    margin-top: 4rem;
-    text-align: left;
-  }
-
-  .number {
-    font-size: 3rem;
+    place-items: center;
+    background: var(--accent);
+    color: var(--aubergine);
     font-weight: 700;
-    color: #e5e5e5;
+    font-size: 0.9375rem;
+    margin-bottom: 0.5rem;
   }
+  h3 { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; }
+  .step p { font-size: 0.9375rem; color: var(--muted); line-height: 1.65; }
 
-  h3 {
-    margin-top: 0.5rem;
-    font-size: 1.125rem;
-    font-weight: 600;
+  .prompts { display: flex; flex-direction: column; align-items: center; gap: 1.25rem; padding-top: 1rem; }
+  .prompts ul { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; }
+  .prompt {
+    padding: 0.6rem 1.25rem;
+    border-radius: 9999px;
+    font-size: 1rem;
+    font-weight: 500;
+    transform: rotate(var(--tilt));
+    transition: transform 0.15s;
   }
+  .prompt:hover { transform: rotate(0deg) scale(1.04); }
+  .prompt-lyslilla { background: var(--lyslilla); color: var(--aubergine); }
+  .prompt-mint { background: var(--mint); color: var(--aubergine); }
+  .prompt-card { background: var(--card); color: var(--text); box-shadow: inset 0 0 0 1.5px var(--border); }
+  .prompt-aubergine { background: var(--aubergine); color: #FFFFFF; }
 
-  .step p {
-    margin-top: 0.5rem;
-    font-size: 0.875rem;
-    line-height: 1.7;
-    color: var(--text-muted);
+  :global(.dark) .prompt-lyslilla { background: color-mix(in srgb, var(--lilla) 16%, transparent); color: var(--text); box-shadow: inset 0 0 0 1.5px var(--lilla); }
+  :global(.dark) .prompt-mint { background: color-mix(in srgb, var(--mint) 14%, transparent); color: var(--text); box-shadow: inset 0 0 0 1.5px var(--mint); }
+  :global(.dark) .prompt-aubergine { box-shadow: inset 0 0 0 1.5px var(--lilla); }
+
+  @media (max-width: 860px) {
+    .steps { grid-template-columns: 1fr; }
   }
-
-  @media (max-width: 768px) {
-    .steps {
-      grid-template-columns: 1fr;
-    }
+  @media (max-width: 640px) {
+    .how { padding: 4.5rem 1rem; }
+    .prompt { font-size: 0.9375rem; padding: 0.5rem 1rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .prompt, .prompt:hover { transform: none; }
   }
 </style>

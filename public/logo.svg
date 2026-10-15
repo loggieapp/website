@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 327.99 319.02">
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 281.89 281.89">
+  <!-- Generator: Adobe Illustrator 30.5.1, SVG Export Plug-In . SVG Version: 2.1.4 Build 3)  -->
   <defs>
     <style>
-      .cls-1 {
+      .st0 {
         fill: #fff;
       }
 
-      .cls-2 {
-        fill: #1d2025;
+      .st1 {
+        fill: #d9b1fa;
+      }
+
+      .st2 {
+        fill: #1f0234;
       }
     </style>
   </defs>
-  <rect class="cls-2" x="27.05" y="18.57" width="281.89" height="281.89" rx="49.68" ry="49.68"/>
+  <rect class="st2" width="281.89" height="281.89" rx="49.68" ry="49.68"/>
   <g>
-    <polygon class="cls-1" points="138.07 76.49 95.86 76.49 95.86 243.25 219.02 243.25 219.02 205.67 138.07 205.67 138.07 76.49"/>
-    <rect class="cls-1" x="197.91" y="75.77" width="42.22" height="42.22"/>
+    <polygon class="st0" points="111.02 57.92 68.81 57.92 68.81 224.68 191.97 224.68 191.97 187.1 111.02 187.1 111.02 57.92"/>
+    <rect class="st1" x="170.86" y="57.2" width="42.22" height="42.22"/>
   </g>
 </svg>

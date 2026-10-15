@@ -1,0 +1,91 @@
+---
+import { ui, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = ui[lang];
+
+// Card colour and icon (inner SVG markup, 24×24, stroked) for each card, in order
+const looks = [
+  {
+    tone: 'mint',
+    icon: '<path d="M12 2L3 7V13C3 17.55 7.16 21.74 12 23C16.84 21.74 21 17.55 21 13V7L12 2Z"/><path d="M9 12L11 14L15 10"/>',
+  },
+  {
+    tone: 'lyslilla',
+    icon: '<path d="M12 3L13.5 7.5L18 9L13.5 10.5L12 15L10.5 10.5L6 9L10.5 7.5L12 3Z"/><path d="M6 17L6.75 19.25L9 20L6.75 20.75L6 23L5.25 20.75L3 20L5.25 19.25L6 17Z"/>',
+  },
+  {
+    tone: 'card',
+    icon: '<rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/>',
+  },
+  {
+    tone: 'aubergine',
+    icon: '<path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>',
+  },
+];
+---
+
+<section class="why alt" id="why">
+  <div class="container">
+
+    <div class="section-head fade-in">
+      <p class="eyebrow">{t.why.eyebrow}</p>
+      <h2 class="section-title">{t.why.title}</h2>
+    </div>
+
+    <div class="grid">
+      {t.why.cards.map((card, i) => (
+        <div class={`why-card tone-${looks[i].tone} fade-in`} style={`transition-delay: ${i * 80}ms`}>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={looks[i].icon} />
+          <h3>{card.title}</h3>
+          <p>{card.text}</p>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .why { padding: 6rem 2.5rem; }
+  .container { max-width: 64rem; margin: 0 auto; display: flex; flex-direction: column; gap: 3rem; }
+  .section-head { display: flex; flex-direction: column; gap: 0.625rem; }
+
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+  .why-card {
+    border-radius: 1.5rem;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+    min-height: 250px;
+  }
+  .why-card h3 { font-size: 1.125rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; }
+  .why-card p { font-size: 0.875rem; line-height: 1.65; margin-top: auto; opacity: 0.78; }
+
+  .tone-mint { background: var(--mint); color: var(--aubergine); }
+  .tone-lyslilla { background: var(--lyslilla); color: var(--aubergine); }
+  .tone-card { background: var(--card); color: var(--text); box-shadow: inset 0 0 0 1px var(--border); }
+  .tone-aubergine { background: var(--aubergine); color: #FFFFFF; }
+  .tone-aubergine svg { color: var(--working-detail); }
+
+  /* Dark mode: dark cards with coloured edges and details, like the app */
+  :global(.dark) .tone-mint, :global(.dark) .tone-lyslilla { background: var(--card); color: var(--text); }
+  :global(.dark) .tone-mint { box-shadow: inset 0 0 0 1.5px var(--mint); }
+  :global(.dark) .tone-mint svg { color: var(--mint); }
+  :global(.dark) .tone-lyslilla { box-shadow: inset 0 0 0 1.5px var(--lilla); }
+  :global(.dark) .tone-lyslilla svg { color: var(--lilla); }
+  :global(.dark) .tone-aubergine { box-shadow: inset 0 0 0 1.5px var(--lilla); }
+  @media (max-width: 900px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .why { padding: 4.5rem 1rem; }
+    .grid { grid-template-columns: 1fr; }
+    .why-card { min-height: 0; }
+  }
+</style>

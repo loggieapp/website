@@ -1,0 +1,30 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from './Hero.astro';
+import Why from './Why.astro';
+import HowItWorks from './HowItWorks.astro';
+import Features from './Features.astro';
+import Privacy from './Privacy.astro';
+import CTA from './CTA.astro';
+import Footer from './Footer.astro';
+import type { Lang } from '../i18n';
+import '../styles/global.css';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+---
+
+<Base lang={lang}>
+  <main>
+    <Hero lang={lang} />
+    <Why lang={lang} />
+    <HowItWorks lang={lang} />
+    <Features lang={lang} />
+    <Privacy lang={lang} />
+    <CTA lang={lang} />
+  </main>
+  <Footer lang={lang} />
+</Base>

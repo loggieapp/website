@@ -1,15 +1,77 @@
-:root {
-  --cream: #F9F8F4;
-  --dark: #1D2025;
-  --lavender: #B8A4DF;
-  --lavender-light: #CDBCE6;
-  --green-light: #DFEED7;
-  --apricot: #FFBA86;
-  --border: #E0DDD6;
+@font-face {
+  font-family: 'Archivo';
+  src: url('/fonts/Archivo.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
 
-  --text: #1D2025;
-  --text-muted: #6B6E77;
-  --bg: #F9F8F4;
+/* Loggie D3 profile. Same colours as the Mac app. */
+:root {
+  --aubergine: #1F0234;
+  --lilla: #BC72F7;
+  --lyslilla: #D9B1FA;
+  --mint: #A4DCB5;
+  --skog: #3E7E59;
+
+  --bg: #F7F7F8;
+  --bg-alt: #EFEFEF;
+  --card: #FFFFFF;
+  --text: #1F0234;
+  --muted: #6B7280;
+  --track: #E1E3E8;
+  --border: rgba(31, 2, 52, 0.08);
+  --shadow: 0 8px 30px rgba(31, 2, 52, 0.08), 0 2px 8px rgba(31, 2, 52, 0.04);
+
+  /* Main buttons, highlights and "Working on" details */
+  --btn-bg: var(--aubergine);
+  --btn-text: #FFFFFF;
+  --btn-hover: #3A0D5C;
+  --accent: var(--lyslilla);
+  --focus: var(--lyslilla);
+  --working-border: transparent;
+  --working-detail: var(--lyslilla);
+
+  /* Project colours, in order */
+  --p1: #BC72F7;
+  --p2: #3E7E59;
+  --p3: #1F0234;
+  --p4: #A4DCB5;
+  --p5: #D9B1FA;
+  --p6: #14298C;
+  --p7: #3D6BFF;
+  --p8: #52D1FF;
+  --p-none: #CFCFCF;
+
+  color-scheme: light;
+}
+
+/* Dark mode. Base.astro sets the class from the visitor's choice or the system setting. */
+:root.dark {
+  color-scheme: dark;
+  --bg: #1D2025;
+  --bg-alt: #191B1F;
+  --card: #262A30;
+  --text: #F4ECF8;
+  --muted: #9CA3AF;
+  --track: #363A42;
+  --border: rgba(244, 236, 248, 0.08);
+  --shadow: 0 8px 30px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.2);
+
+  --btn-bg: var(--lilla);
+  --btn-text: var(--aubergine);
+  --btn-hover: #CA8EF9;
+  --accent: var(--lilla);
+  --focus: var(--lilla);
+  --working-border: var(--lilla);
+  --working-detail: var(--mint);
+
+  --p2: #5FA87F;
+  --p3: #F1E4F5;
+  --p6: #4A63E0;
+  --p7: #6E8FFF;
+  --p8: #7ADCFF;
+  --p-none: #4A4D55;
 }
 
 *,
@@ -22,12 +84,13 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  font-family: 'Miranda Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-family: 'Archivo', ui-sans-serif, system-ui, -apple-system, sans-serif;
   font-weight: 400;
   color: var(--text);
   background: var(--bg);
@@ -39,13 +102,88 @@ a {
   text-decoration: none;
 }
 
-.fade-in {
+:focus-visible {
+  outline: 2px solid var(--lilla);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Sections on the darker grey. Muted text is a little darker there to keep its contrast. */
+.alt {
+  background: var(--bg-alt);
+  --muted: #5E6573;
+}
+
+.dark .alt { --muted: #9CA3AF; }
+
+/* Shared section heading */
+.eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+
+.section-title {
+  font-size: clamp(1.875rem, 3.5vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+}
+
+/* Pill buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.625rem;
+  border-radius: 9999px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  font-family: inherit;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--btn-bg);
+  color: var(--btn-text);
+}
+
+.btn-primary:hover {
+  background: var(--btn-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(31, 2, 52, 0.2);
+}
+
+.text-link {
+  font-size: 0.875rem;
+  color: var(--muted);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, currentColor 40%, transparent);
+  text-underline-offset: 3px;
+  transition: color 0.15s;
+}
+
+.text-link:hover {
+  color: var(--text);
+}
+
+/* Scroll-in animation. Only hides content when JavaScript runs. */
+.js .fade-in {
   opacity: 0;
   transform: translateY(16px);
   transition: opacity 0.55s ease-out, transform 0.55s ease-out;
 }
 
-.fade-in.visible {
+.js .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js .fade-in { opacity: 1; transform: none; transition: none; }
+  .btn:hover { transform: none; }
 }

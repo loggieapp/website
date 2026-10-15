@@ -1,56 +1,78 @@
 ---
+import { langs, paths, ui, type Lang } from '../i18n';
+
 interface Props {
-  title?: string;
-  description?: string;
+  lang: Lang;
 }
 
-const {
-  title = 'Loggie — Your personal activity memory',
-  description = 'Loggie quietly tracks what you work on and stores everything locally. Ask any AI about your day, find lost tabs, and never lose context again. 100% private.',
-} = Astro.props;
+const { lang } = Astro.props;
+const t = ui[lang];
 
 const siteUrl = 'https://loggie.app';
+const pageUrl = new URL(paths[lang], siteUrl).href;
 const ogImage = `${siteUrl}/og.png`;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={t.htmlLang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
 
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <link rel="canonical" href={siteUrl} />
+    <title>{t.meta.title}</title>
+    <meta name="description" content={t.meta.description} />
+    <link rel="canonical" href={pageUrl} />
+    {langs.map((l) => (
+      <link rel="alternate" hreflang={ui[l].htmlLang} href={new URL(paths[l], siteUrl).href} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={new URL(paths.en, siteUrl).href} />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={siteUrl} />
+    <meta property="og:url" content={pageUrl} />
     <meta property="og:site_name" content="Loggie" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    <meta property="og:title" content={t.meta.title} />
+    <meta property="og:description" content={t.meta.description} />
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale" content={t.ogLocale} />
+    {langs.filter((l) => l !== lang).map((l) => (
+      <meta property="og:locale:alternate" content={ui[l].ogLocale} />
+    ))}
 
     <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
+    <meta name="twitter:title" content={t.meta.title} />
+    <meta name="twitter:description" content={t.meta.description} />
     <meta name="twitter:image" content={ogImage} />
 
     <!-- Misc -->
     <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#F9F8F4" />
+    <meta name="theme-color" content="#F7F7F8" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1D2025" media="(prefers-color-scheme: dark)" />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Miranda+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preload" href="/fonts/Archivo.woff2" as="font" type="font/woff2" crossorigin />
+    <script is:inline>
+      // Set the theme before the page draws: the visitor's choice, or else the system setting
+      (() => {
+        const root = document.documentElement;
+        root.classList.add('js');
+        const system = matchMedia('(prefers-color-scheme: dark)');
+        let choice = null;
+        try { choice = localStorage.getItem('theme'); } catch {}
+        const apply = () => root.classList.toggle('dark', choice ? choice === 'dark' : system.matches);
+        apply();
+        system.addEventListener('change', () => { if (!choice) apply(); });
+        window.setTheme = (theme) => {
+          choice = theme;
+          try { localStorage.setItem('theme', theme); } catch {}
+          apply();
+        };
+      })();
+    </script>
 
     <script
       is:inline
@@ -67,6 +89,7 @@ const ogImage = `${siteUrl}/og.png`;
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
             }
           });
         },
