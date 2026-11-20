@@ -1,47 +1,57 @@
 @font-face {
-  font-family: 'Archivo';
-  src: url('/fonts/Archivo.woff2') format('woff2');
+  font-family: 'Funnel Display';
+  src: url('/fonts/FunnelDisplay.woff2') format('woff2');
+  font-weight: 300 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist';
+  src: url('/fonts/Geist.woff2') format('woff2');
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
 
-/* Loggie D3 profile. Same colours as the Mac app. */
+/* Loggie profile, November 2026: cool editorial minimalism. Same colours as the Mac app.
+   Colour comes in small doses (the logo square, dots, the day strip). Text is always ink. */
 :root {
-  --aubergine: #1F0234;
-  --lilla: #BC72F7;
-  --lyslilla: #D9B1FA;
-  --mint: #A4DCB5;
-  --skog: #3E7E59;
+  --paper: #F7F8FA;
+  --stone: #ECEEF2;
+  --line: #D6DAE0;
+  --surface: #FFFFFF;
+  --ink: #22262B;
+  /* The app's muted grey (#737B86) is a little light for small text on the web, so the
+     site uses a slightly darker one to keep 4.5:1 contrast. */
+  --muted: #646B75;
+  --lavender: #9D90F2;
 
-  --bg: #F7F7F8;
-  --bg-alt: #EFEFEF;
-  --card: #FFFFFF;
-  --text: #1F0234;
-  --muted: #6B7280;
-  --track: #E1E3E8;
-  --border: rgba(31, 2, 52, 0.08);
-  --shadow: 0 8px 30px rgba(31, 2, 52, 0.08), 0 2px 8px rgba(31, 2, 52, 0.04);
 
-  /* Main buttons, highlights and "Working on" details */
-  --btn-bg: var(--aubergine);
-  --btn-text: #FFFFFF;
-  --btn-hover: #3A0D5C;
-  --accent: var(--lyslilla);
-  --focus: var(--lyslilla);
-  --working-border: transparent;
-  --working-detail: var(--lyslilla);
+  --btn-bg: var(--ink);
+  --btn-text: var(--paper);
+  --btn-hover: #3A4048;
 
-  /* Project colours, in order */
-  --p1: #BC72F7;
-  --p2: #3E7E59;
-  --p3: #1F0234;
-  --p4: #A4DCB5;
-  --p5: #D9B1FA;
-  --p6: #14298C;
-  --p7: #3D6BFF;
-  --p8: #52D1FF;
-  --p-none: #CFCFCF;
+  /* Project colours, in the app's order */
+  --p1: #9D90F2;
+  --p2: #6A9DF2;
+  --p3: #5BC0E3;
+  --p4: #3DBDAA;
+  --p5: #6CC487;
+  --p6: #B4CC5A;
+  --p7: #F0C75A;
+  --p8: #F5A566;
+  --p9: #F28783;
+  --p10: #EC85B4;
+  --p11: #B07FE0;
+  --p12: #8C9BB0;
+  --pnone: #D6DAE0;
+
+  --display: 'Funnel Display', 'Geist', ui-sans-serif, system-ui, sans-serif;
+  --mono: ui-monospace, 'SF Mono', Menlo, monospace;
+  --radius: 4px;
+  /* Cards lift off the paper with a soft shadow instead of an outline */
+  --card-shadow: 0 1px 2px rgba(34, 38, 43, 0.06), 0 12px 32px -16px rgba(34, 38, 43, 0.18);
 
   color-scheme: light;
 }
@@ -49,29 +59,17 @@
 /* Dark mode. Base.astro sets the class from the visitor's choice or the system setting. */
 :root.dark {
   color-scheme: dark;
-  --bg: #1D2025;
-  --bg-alt: #191B1F;
-  --card: #262A30;
-  --text: #F4ECF8;
-  --muted: #9CA3AF;
-  --track: #363A42;
-  --border: rgba(244, 236, 248, 0.08);
-  --shadow: 0 8px 30px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.2);
-
-  --btn-bg: var(--lilla);
-  --btn-text: var(--aubergine);
-  --btn-hover: #CA8EF9;
-  --accent: var(--lilla);
-  --focus: var(--lilla);
-  --working-border: var(--lilla);
-  --working-detail: var(--mint);
-
-  --p2: #5FA87F;
-  --p3: #F1E4F5;
-  --p6: #4A63E0;
-  --p7: #6E8FFF;
-  --p8: #7ADCFF;
-  --p-none: #4A4D55;
+  --paper: #15171A;
+  --stone: #202328;
+  --line: #30343A;
+  --surface: #1C1F23;
+  --ink: #EEF0F3;
+  --muted: #8E96A1;
+  --btn-bg: var(--ink);
+  --btn-text: #15171A;
+  --btn-hover: #FFFFFF;
+  --pnone: #3A3F46;
+  --card-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 12px 32px -16px rgba(0, 0, 0, 0.6);
 }
 
 *,
@@ -90,10 +88,10 @@ html {
 }
 
 body {
-  font-family: 'Archivo', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-family: 'Geist', ui-sans-serif, system-ui, -apple-system, sans-serif;
   font-weight: 400;
-  color: var(--text);
-  background: var(--bg);
+  color: var(--ink);
+  background: var(--paper);
   line-height: 1.6;
 }
 
@@ -103,46 +101,103 @@ a {
 }
 
 :focus-visible {
-  outline: 2px solid var(--lilla);
+  outline: 2px solid var(--lavender);
   outline-offset: 3px;
-  border-radius: 4px;
+  border-radius: 2px;
 }
 
-/* Sections on the darker grey. Muted text is a little darker there to keep its contrast. */
-.alt {
-  background: var(--bg-alt);
-  --muted: #5E6573;
+.wrap {
+  --gutter: 2.5rem;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
 }
 
-.dark .alt { --muted: #9CA3AF; }
+/* Every section: the same padding and a left-aligned head. No divider lines; space does the work. */
+.section {
+  padding: 8.5rem 0;
+}
 
-/* Shared section heading */
-.eyebrow {
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--muted);
+
+
+.section-head {
+  max-width: 46rem;
+  margin: 0 0 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
 .section-title {
-  font-size: clamp(1.875rem, 3.5vw, 2.75rem);
-  font-weight: 700;
+  font-family: var(--display);
+  font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+  font-weight: 500;
   letter-spacing: -0.03em;
-  line-height: 1.12;
+  line-height: 1.05;
+  text-wrap: balance;
 }
 
-/* Pill buttons */
+.section-sub {
+  font-size: 1rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* Every other section sits on stone, to separate the content without lines.
+   Boxes inside a tinted section turn white so they still stand out. */
+.tint {
+  background: var(--stone);
+}
+
+.tint .box {
+  background: var(--surface);
+}
+
+/* The dark block at the bottom of the page (download + footer). Redefines the tokens,
+   so everything inside follows without extra rules. Same in light and dark mode. */
+.on-dark {
+  --paper: #22262B;
+  --stone: #2C3137;
+  --ink: #F7F8FA;
+  --muted: #A3AAB4;
+  --btn-bg: #F7F8FA;
+  --btn-text: #22262B;
+  --btn-hover: #FFFFFF;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+:root.dark .on-dark {
+  --paper: #0E1012;
+  --stone: #1A1D21;
+}
+
+/* One quiet box for grouped content */
+.box {
+  background: var(--stone);
+  border-radius: var(--radius);
+}
+
+/* Square dot in a project colour, echoing the square in the logo */
+.sq {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 1.5px;
+  flex-shrink: 0;
+}
+
+/* Buttons: square-ish, no pills */
 .btn {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.8rem 1.625rem;
-  border-radius: 9999px;
+  padding: 0.8rem 1.25rem;
+  border-radius: var(--radius);
   font-size: 0.9375rem;
-  font-weight: 600;
+  font-weight: 500;
   font-family: inherit;
-  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  transition: background 0.15s;
   cursor: pointer;
 }
 
@@ -153,8 +208,6 @@ a {
 
 .btn-primary:hover {
   background: var(--btn-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(31, 2, 52, 0.2);
 }
 
 .text-link {
@@ -167,14 +220,14 @@ a {
 }
 
 .text-link:hover {
-  color: var(--text);
+  color: var(--ink);
 }
 
 /* Scroll-in animation. Only hides content when JavaScript runs. */
 .js .fade-in {
   opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.55s ease-out, transform 0.55s ease-out;
+  transform: translateY(12px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
 .js .fade-in.visible {
@@ -182,8 +235,13 @@ a {
   transform: translateY(0);
 }
 
+@media (max-width: 760px) {
+  .wrap { --gutter: 1rem; }
+  .section { padding: 5.5rem 0; }
+  .section-head { margin-bottom: 3rem; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .js .fade-in { opacity: 1; transform: none; transition: none; }
-  .btn:hover { transform: none; }
 }

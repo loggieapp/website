@@ -11,12 +11,11 @@ const t = ui[lang];
 const other: Lang = lang === 'en' ? 'no' : 'en';
 ---
 
-<footer class="footer alt">
-  <div class="inner">
-
+<footer class="footer on-dark">
+  <div class="wrap inner">
     <div class="left">
       <a href={paths[lang]} class="brand" aria-label={t.nav.home}>
-        <Logo height={22} />
+        <Logo size={22} />
       </a>
       <p class="tagline">{t.footer.tagline}</p>
     </div>
@@ -29,25 +28,22 @@ const other: Lang = lang === 'en' ? 'no' : 'en';
     </nav>
 
     <p class="copy">&copy; {new Date().getFullYear()} Loggie</p>
-
   </div>
 </footer>
 
 <style>
-  .footer { border-top: 1px solid var(--border); padding: 2.5rem; }
-  .inner { max-width: 64rem; margin: 0 auto; display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 3rem; }
-  .left { display: flex; flex-direction: column; gap: 0.375rem; }
-  .brand { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.9375rem; font-weight: 700; }
+  .footer { overflow: hidden; }
+  .footer > .wrap { padding-top: 1rem; padding-bottom: 3rem; }
   .tagline { font-size: 0.8125rem; color: var(--muted); }
+  .inner { display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 3rem; }
+  .left { display: flex; flex-direction: column; gap: 0.625rem; align-items: flex-start; }
   .links { display: flex; gap: 1.75rem; flex-wrap: wrap; }
   .links a { font-size: 0.875rem; color: var(--muted); transition: color 0.15s; }
-  .links a:hover { color: var(--text); }
+  .links a:hover { color: var(--ink); }
   .copy { font-size: 0.8125rem; color: var(--muted); white-space: nowrap; }
 
   @media (max-width: 760px) {
-    .footer { padding: 2.5rem 1rem; }
-    .inner { grid-template-columns: 1fr; gap: 1.5rem; text-align: center; }
-    .left { align-items: center; }
-    .links { justify-content: center; gap: 1.25rem 1.75rem; }
+    .inner { grid-template-columns: 1fr; gap: 1.5rem; }
+    .links { gap: 1rem 1.5rem; }
   }
 </style>
