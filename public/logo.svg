@@ -1,24 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 281.89 281.89">
-  <!-- Generator: Adobe Illustrator 30.5.1, SVG Export Plug-In . SVG Version: 2.1.4 Build 3)  -->
-  <defs>
-    <style>
-      .st0 {
-        fill: #fff;
-      }
-
-      .st1 {
-        fill: #d9b1fa;
-      }
-
-      .st2 {
-        fill: #1f0234;
-      }
-    </style>
-  </defs>
-  <rect class="st2" width="281.89" height="281.89" rx="49.68" ry="49.68"/>
-  <g>
-    <polygon class="st0" points="111.02 57.92 68.81 57.92 68.81 224.68 191.97 224.68 191.97 187.1 111.02 187.1 111.02 57.92"/>
-    <rect class="st1" x="170.86" y="57.2" width="42.22" height="42.22"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="100 100 824 824">
+  <!-- Loggie app icon: the L is the hour and minute hands of a clock, the square is the second hand. -->
+  <rect x="100" y="100" width="824" height="824" rx="181.28" fill="#22262B"/>
+  <rect x="324.54" y="297.76" width="111.24" height="434.66" fill="#F7F8FA"/>
+  <rect x="324.54" y="621.18" width="335.78" height="111.24" fill="#F7F8FA"/>
+  <rect x="589.37" y="305.57" width="111.24" height="111.24" fill="#9D90F2"/>
 </svg>

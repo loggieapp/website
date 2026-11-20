@@ -1,0 +1,198 @@
+---
+import { ui, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = ui[lang];
+const l = t.log;
+const projects = t.demo.weekProjects;
+const max = Math.max(...projects.map((p) => p.min));
+const total = l.sheet.reduce((sum, r) => sum + parseFloat(r.hours.replace(',', '.')), 0);
+const totalText = lang === 'no' ? total.toFixed(1).replace('.', ',') : total.toFixed(1);
+---
+
+<section class="section" id="log">
+  <div class="wrap">
+    <div class="section-head fade-in">
+      <h2 class="section-title">{l.title}</h2>
+      <p class="section-sub">{l.sub}</p>
+    </div>
+
+    <div class="log fade-in" data-log>
+      <div class="tabs" role="tablist" aria-orientation="vertical">
+        {l.tabs.map((tab, i) => (
+          <button
+            type="button"
+            role="tab"
+            id={`log-tab-${i}`}
+            aria-controls={`log-panel-${i}`}
+            aria-selected={i === 0 ? 'true' : 'false'}
+            tabindex={i === 0 ? 0 : -1}
+            class="tab"
+          >
+            <span class="tab-title">{tab.title}</span>
+            <span class="tab-text">{tab.text}</span>
+          </button>
+        ))}
+      </div>
+
+      <div class="frame">
+        <!-- 1: the activity log -->
+        <div role="tabpanel" id="log-panel-0" aria-labelledby="log-tab-0" class="panel">
+          <table>
+            <thead><tr><th>{l.cols.time}</th><th>{l.cols.app}</th><th>{l.cols.title}</th><th class="proj-col">{l.cols.project}</th></tr></thead>
+            <tbody>
+              {l.rows.map((r) => {
+                const p = projects.find((x) => x.color === r.color);
+                return (
+                  <tr>
+                    <td class="num">{r.time}</td>
+                    <td>{r.app}</td>
+                    <td class="title">{r.title}</td>
+                    <td class="proj-col"><span class="proj"><span class="sq" style={`background: var(--p${r.color})`}></span>{p?.name}</span></td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 2: projects -->
+        <div role="tabpanel" id="log-panel-1" aria-labelledby="log-tab-1" class="panel" hidden>
+          <ul class="bars">
+            {projects.map((p) => (
+              <li>
+                <span class="proj"><span class="sq" style={`background: var(--p${p.color})`}></span>{p.name}</span>
+                <span class="bar"><span style={`width: ${(p.min / max) * 100}%; background: var(--p${p.color})`}></span></span>
+                <span class="num">{p.time}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- 3: timesheet -->
+        <div role="tabpanel" id="log-panel-2" aria-labelledby="log-tab-2" class="panel" hidden>
+          <p class="sheet-head"><span class="sq" style="background: var(--p1)"></span>{projects[0].name}</p>
+          <table>
+            <thead><tr><th>{l.cols.date}</th><th class="right">{l.cols.hours}</th><th>{l.cols.desc}</th></tr></thead>
+            <tbody>
+              {l.sheet.map((r) => (
+                <tr><td>{r.date}</td><td class="num right">{r.hours}</td><td class="title">{r.desc}</td></tr>
+              ))}
+            </tbody>
+            <tfoot><tr><td>{l.sheetTotal}</td><td class="num right">{totalText}</td><td></td></tr></tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Tabs: click or arrow keys switch the panel on the right.
+  document.querySelectorAll<HTMLElement>('[data-log]').forEach((root) => {
+    const tabs = [...root.querySelectorAll<HTMLButtonElement>('[role="tab"]')];
+    const select = (i: number, focus = false) => {
+      tabs.forEach((tab, j) => {
+        const on = i === j;
+        tab.setAttribute('aria-selected', String(on));
+        tab.tabIndex = on ? 0 : -1;
+        const panel = root.querySelector<HTMLElement>(`#${tab.getAttribute('aria-controls')}`);
+        if (panel) panel.hidden = !on;
+      });
+      if (focus) tabs[i].focus();
+    };
+    tabs.forEach((tab, i) => {
+      tab.addEventListener('click', () => select(i));
+      tab.addEventListener('keydown', (e) => {
+        const step = e.key === 'ArrowDown' || e.key === 'ArrowRight' ? 1 : e.key === 'ArrowUp' || e.key === 'ArrowLeft' ? -1 : 0;
+        if (!step) return;
+        e.preventDefault();
+        select((i + step + tabs.length) % tabs.length, true);
+      });
+    });
+  });
+</script>
+
+<style>
+  .log { display: grid; grid-template-columns: 20rem 1fr; gap: 4rem; align-items: start; }
+
+  /* Tab list: the active one gets a square marker, the rest are greyed */
+  .tabs { display: flex; flex-direction: column; gap: 0.25rem; }
+  .tab {
+    all: unset;
+    box-sizing: border-box;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.875rem 0;
+  }
+  /* The marker sits inside the title row, so it is always centred on the line */
+  .tab-title {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    font-family: var(--display);
+    font-size: 1.375rem;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    line-height: 1.3;
+    color: var(--muted);
+    transition: color 0.2s;
+  }
+  .tab-title::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    flex-shrink: 0;
+    background: var(--line);
+    transition: background 0.2s;
+  }
+  .tab-text { font-size: 0.875rem; color: var(--muted); line-height: 1.5; display: none; padding-left: calc(7px + 0.875rem); }
+  .tab[aria-selected='true'] .tab-title::before { background: var(--ink); }
+  .tab[aria-selected='true'] .tab-title { color: var(--ink); }
+  .tab[aria-selected='true'] .tab-text { display: block; }
+  .tab:hover .tab-title { color: var(--ink); }
+  .tab:focus-visible { outline: 2px solid var(--lavender); outline-offset: 2px; }
+
+  /* Panel */
+  .frame {
+    background: var(--surface);
+    box-shadow: var(--card-shadow);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    min-height: 23rem;
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 0.8125rem; }
+  th { text-align: left; font-weight: 400; color: var(--muted); font-size: 0.75rem; padding: 0 0.75rem 0.625rem 0; }
+  td { padding: 0.55rem 0.75rem 0.55rem 0; white-space: nowrap; }
+  tfoot td { padding-top: 1rem; font-weight: 500; }
+  .title { white-space: normal; color: var(--muted); }
+  .num { font-variant-numeric: tabular-nums; }
+  .right { text-align: right; }
+  .proj { display: inline-flex; align-items: center; gap: 0.5rem; }
+
+  .bars { list-style: none; }
+  .bars li { display: grid; grid-template-columns: 11rem 1fr 4.5rem; align-items: center; gap: 1rem; font-size: 0.875rem; padding: 0.6rem 0; }
+  .bars .num { text-align: right; color: var(--muted); }
+  .bar { height: 6px; background: var(--stone); }
+  .bar span { display: block; height: 100%; }
+
+  .sheet-head { display: flex; align-items: center; gap: 0.5rem; font-weight: 500; font-size: 0.9375rem; margin-bottom: 1rem; }
+
+  @media (max-width: 900px) {
+    .log { grid-template-columns: 1fr; gap: 1.5rem; }
+    .tab-text { display: none !important; }
+  }
+  @media (max-width: 560px) {
+    .frame { padding: 1rem; min-height: 0; overflow-x: auto; }
+    .proj-col { display: none; }
+    .bars li { grid-template-columns: 1fr 4rem; }
+    .bar { grid-column: 1 / -1; grid-row: 2; }
+  }
+</style>
